@@ -81,3 +81,44 @@ var str = "Hello, playground"
 1%1
 1/1
 
+
+// Creates a constant with the value of 17
+// A constant CANNOT be changed once created
+let valueToConvert = 33
+// Create a variable with the value of "valueToConvert"
+// A variable CAN be changed once created
+var decimalValueLeftToConvert = valueToConvert
+// This creates an empty string
+// A string is just text, like "hello"
+var binaryRepresentation = ""
+
+// The abstraction we will use is a LOOP
+// Our END CONDITION is that the decimalValueLeftToConvert is equal to zero
+// So long as the CONDITION is true, the block of code surrounded by the {  } brackets will be run repeatedly
+while decimalValueLeftToConvert > 0 {
+    
+
+    // Get the next binary digit
+    let nextBinaryDigit = decimalValueLeftToConvert % 2
+    
+
+    // Add that new digit to the binary representation
+    // Swift is a STRICTLY TYPED language
+    // It DOES NOT automatically convert data types
+    // So, to make the Int into a String, we need to specify this
+    binaryRepresentation = String(nextBinaryDigit) + binaryRepresentation
+    
+
+    // Get the decimal value left to convert
+    decimalValueLeftToConvert = decimalValueLeftToConvert / 2
+    
+
+}
+binaryRepresentation
+
+/*
+ Functions
+ Functions are a way to group (encapsulate) related behaviour
+ Once some behaviour is inside a function, the complexity is hidden
+ We can use or call the function whatever we want
+ */
