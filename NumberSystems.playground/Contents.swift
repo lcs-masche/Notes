@@ -171,6 +171,8 @@ func getRepresentation(of valueToConvert: Int, inBase base: NumberSystemBase
     
 }
 
+
+
 //getRepresentation(of: 17, inBase: 2)
 //getRepresentation(of: 17, inBase: 16)
 
@@ -178,4 +180,7 @@ func getRepresentation(of valueToConvert: Int, inBase base: NumberSystemBase
 getRepresentation(of: 17 , inBase: .binary)
 getRepresentation(of: 17 , inBase: .octal)
 getRepresentation(of: 15 , inBase: .hexadecimal)
-getRepresentation(of: 5003, inBase: .hexadecimal)
+getRepresentation(of: 900, inBase: .hexadecimal)
+
+getRepresentation(of: 50, inBase: .binary)
+getRepresentation(of: 50, inBase: .binary)
