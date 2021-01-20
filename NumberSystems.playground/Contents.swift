@@ -184,3 +184,57 @@ getRepresentation(of: 900, inBase: .hexadecimal)
 
 getRepresentation(of: 50, inBase: .binary)
 getRepresentation(of: 50, inBase: .binary)
+
+
+
+
+//bianry do decimal
+//base 2 to base 10
+ let value = "01110"
+
+
+//from what base r we converting
+let base = 2.0
+
+// the exponent value at the right most digit
+var exponent = 0.0
+
+//the current summ in decimal
+var decimalEquivalent = 0.0
+
+//iterate over each character
+//from right to left
+
+for character in value.reversed() {
+
+   if let digit = Double(String(character)) {
+
+        //add the current sum
+        decimalEquivalent += digit * pow(base, exponent)
+        exponent += 1
+    }
+}
+decimalEquivalent
+
+
+
+
+//value to convert
+let value2 = "23"
+//base we are converting fro
+let base2 = 8.0
+var decimalEquivalent2 = 0.0
+var exponent2 = 0.0
+
+if value2.contains("9") || value2.contains("8") {
+    print("ERROR")
+} else {
+    for character in value2.reversed() {
+        if let digit2 = Double(String(character)) {
+            decimalEquivalent2 += digit2 * pow(base2, exponent2)
+            exponent2 += 1
+        }
+    }
+}
+decimalEquivalent2
+

@@ -1,9 +1,9 @@
 /*:
  # A Look at Strings
  Here is the [official documentation from Apple](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/StringsAndCharacters.html).
- 
+
  There are many languages worldwide. Swift fully supports the [Unicode standard](https://www.unicode.org/standard/standard.html), meaning strings may contain Latin characters, like *A*, or symbols from Mandarin Chinese, like *你好*, or even Emoji, such as: 🤦🏻‍♂️. These *glyphs* are represented using different amounts of internal storage in a computer. As a result, handling strings in Swift requires a bit more knowledge than in other programming languages that do not fully support the Unicode standard.
- 
+
 Below are some short examples that build upon the [information presented in section 2.1 of App Development with Swift](ibooks://assetid/1465002990#page(114)) that may prove useful.
  */
 
@@ -22,17 +22,17 @@ print("==========================")
 
 /*:
  ## How are individual characters represented and stored?
- 
+
  Short summary – each character can be represented by a *Unicode scalar*.
- 
+
  Each scalar has a value, or *code unit*. Essentially, a number.
- 
+
  This is a [good reference](https://unicodelookup.com/#latin/1).
- 
+
  Look for the values in the *Dec* (decimal) column.
- 
+
  For example, capital A is 65. Capital B is 66. Capital C is 67. And so on.
- 
+
  */
 
 // Print each letter's Unicode scalar value (a.k.a. "code unit")
@@ -46,20 +46,20 @@ print("==========================")
 // We can also use a loop to build a string from scalar values
 var builtStringFromLoop = ""
 for i in 97...122 {
-    
+
     // What is the scalar value?
     print("Unicode scalar value is: \(i)")
-    
+
     // Try to convert the provided scalar value to an actual instance of a Unicode scalar
     if let scalar = UnicodeScalar(i) {
-        
+
         // If we got here, inside the "if let" statement, the Unicode scalar was successfully created
         let newLetter = String(scalar) // Convert the scalar into a single letter
         print("About to add this letter to the string: \(newLetter)")
         builtStringFromLoop += newLetter // Now add the letter to the built string
-        
+
     }
-    
+
 }
 print("The string built from the loop is: \(builtStringFromLoop)")
 print("==========================")
@@ -68,13 +68,13 @@ print("==========================")
 ## Accessing individual characters from a string
 
  There is a [set of nice examples in the Swift documentation](https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html#ID494) that show how to access parts of a string.
- 
+
  Let's consider the following string:
- 
+
  `Lakefield College School`
- 
+
  This is how the string would be represented internally, using indices:
- 
+
  ![string-by-index](string-by-index.png)
 
 */
@@ -128,18 +128,18 @@ print("Second last character is: \(secondLast)")
 
 /*:
  ## Exercises
- 
+
  ### Exercise 1
- 
+
  Create a constant called `name` that contains your full name.
- 
+
  Then, use a loop to iterate over each character of your name, and print each character, one by one, in the Debug area below.
- 
+
  For example:
- 
+
  ![name](name.png)
  */
-// This will separate the output from the examples above from your work
+ This will separate the output from the examples above from your work
 print("===== Exercise 1 begins =====")
  let name = "Moritz Asche"
 
@@ -154,7 +154,7 @@ Consider the phrase stored in the constant `aQuestion` below.
 Write code, in *two different ways*, that prints the single character 在 to the Debug area.
 
 */
-// This will separate the output from the code above from your work for this question
+ This will separate the output from the code above from your work for this question
 print("===== Exercise 2 begins =====")
 
 // Create a string
@@ -173,16 +173,33 @@ print( "The letter is \(character)")
 A challenge.
 
 The [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher#/media/File:Caesar_cipher_left_shift_of_3.svg) is a basic encryption technique that involves shifting letters left or right within the alphabet.
- 
+
 Say that you wish to encrypt the word `pen` using a *rightward shift of three characters*.
- 
+
  Write code below that encrypts the word using a Caesar cipher.
- 
+
  HINT: Think about using Unicode scalar values, performing arithmetic, and then creating new characters.
 
 */
-
+//Exercise 3
 // Create the starting phrase
 let plainText = "pen"
 
-// Encrypt the starting phrase
+var cipherText = ""
+
+for scalar in plainText.unicodeScalars {
+    print("plaintext scalar: \(scalar)")
+    print("plainText scalar value: \(scalar.value)")
+
+    let newScalarValue = scalar.value + 3
+    if let newScalar = UnicodeScalar(newScalarValue) {
+        print("shifted scalar value \(newScalarValue)")
+        print("cipherTesxt scalar: \(newScalar)")
+
+        cipherText += String(newScalar)
+
+
+    }
+    print("---- end of current iteration of loop going over each character in the plain text ----")
+}
+print("The encrypted text \(cipherText)")
