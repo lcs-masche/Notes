@@ -94,7 +94,7 @@ enum NumberSystemBase: Int {
     case binary = 2
     case octal = 8
     case hexadecimal = 16
-    
+
 }
 
 
@@ -109,25 +109,25 @@ enum NumberSystemBase: Int {
 
 func getRepresentation(of valueToConvert: Int, inBase base: NumberSystemBase
 ) -> String {
-    
-    
+
+
     // Create a variable with the value of "valueToConvert"
     // A variable CAN be changed once created
     var decimalValueLeftToConvert = valueToConvert
     // This creates an empty string
     // A string is just text, like "hello"
     var representation = ""
-    
+
     // The abstraction we will use is a LOOP
     // Our END CONDITION is that the decimalValueLeftToConvert is equal to zero
     // So long as the CONDITION is true, the block of code surrounded by the {  } brackets will be run repeatedly
     while decimalValueLeftToConvert > 0 {
-        
-        
+
+
         // Get the next binary digit
         let nextDigit = decimalValueLeftToConvert % base.rawValue
-        
-        
+
+
         // Add that new digit to the binary representation
         // Swift is a STRICTLY TYPED language
         // It DOES NOT automatically convert data types
@@ -150,25 +150,25 @@ func getRepresentation(of valueToConvert: Int, inBase base: NumberSystemBase
                 representation = "E" + representation
             case 15:
                 representation = "F" + representation
-                
-                
-                
-                
+
+
+
+
             default:
                 break
             }
         } else {
             representation = String(nextDigit) + representation
         }
-    
-        
+
+
         // Get the decimal value left to convert
         decimalValueLeftToConvert = decimalValueLeftToConvert / base.rawValue
-        
-        
+
+
     }
     return representation
-    
+
 }
 
 
@@ -219,7 +219,7 @@ decimalEquivalent
 
 
 
-//value to convert
+value to convert
 let value2 = "23"
 //base we are converting fro
 let base2 = 8.0
@@ -250,7 +250,7 @@ for character in value3.reversed() {
         decimalEquivilant3 += digit * pow(base3, exponent3)
     } else {
         switch character {
-        
+
         case "A":
             decimalEquivilant3 += 10.0 * pow(base3, exponent3)
         case "B":
@@ -263,7 +263,7 @@ for character in value3.reversed() {
             decimalEquivilant3 += 14.0 * pow(base3, exponent3)
         case "F":
             decimalEquivilant3 += 15.0 * pow(base3, exponent3)
-            
+
         default:
             break
 
@@ -274,3 +274,189 @@ for character in value3.reversed() {
 print(decimalEquivilant3)
 
 
+
+enum NumberSystemBase4: Double {
+
+    case binary = 2.0
+
+    case octal = 8.0
+
+    case hexadecimal = 16.0
+
+}
+
+func getDecimalRepresentation(of value: Int, frombase base: NumberSystemBase4) -> Double {
+
+let value =
+
+
+
+    let base = NumberSystemBase4.self
+
+
+
+var exponent = 0.0
+
+var decimalEquivalent = 0.0
+
+
+for character in value.reversed() {
+
+    
+
+    
+
+    if let digit = Double(String(character)) {
+
+
+        decimalEquivilant3 += digit * pow(base3, exponent3)
+
+        
+
+    } else {
+
+
+        switch character {
+
+        case "A":
+
+            decimalEquivalent += 10.0 * pow(base, exponent)
+
+        case "B":
+
+            decimalEquivalent += 11.0 * pow(base, exponent)
+
+        case "C":
+
+            decimalEquivalent += 12.0 * pow(base, exponent)
+
+        case "D":
+
+            decimalEquivalent += 13.0 * pow(base, exponent)
+
+        case "E":
+
+            decimalEquivalent += 14.0 * pow(base, exponent)
+
+        case "F":
+
+            decimalEquivalent += 15.0 * pow(base, exponent)
+
+        default:
+
+            break
+
+        }
+
+    }
+
+
+            exponent += 1
+
+    
+
+}
+
+    return decimalEquivalent
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let valuevalue = ""
+let basebase = 16.0
+
+var exponent4 = 0.0
+var decimalEquivilent4 = 0.0
+
+if basebase.contains(16.0) {
+  
+    for character in valuevalue.reversed() {
+        if let digit = Double(String(character)) {
+            decimalEquivilent4 += 10.0 * pow(basebase, exponent4)
+        } else {
+            switch character {
+
+            case "A":
+                decimalEquivilent4 += 10.0 * pow(basebase, exponent4)
+           
+            case "B":
+                decimalEquivilent4 += 10.0 * pow(basebase, exponent4)
+            
+            case "C":
+                decimalEquivilent4 += 10.0 * pow(basebase, exponent4)
+            
+            case "D":
+                decimalEquivilent4 += 10.0 * pow(basebase, exponent4)
+            
+            case "E":
+                decimalEquivilent4 += 10.0 * pow(basebase, exponent4)
+            
+            case "F":
+                decimalEquivilent4 += 10.0 * pow(basebase, exponent4)
+            default:
+                break
+
+            }
+        }
+        exponent4 += 1
+    }
+    
+print("The converted value is \(decimalEquivilent4) ")
+    
+} else {
+    if basebase.contains("8.0") {
+        
+        
+        if valuevalue.contains("9") || valuevalue.contains("8") {
+            print("ERROR")
+        } else {
+            for character in value2.reversed() {
+                if let digit2 = Double(String(character)) {
+                    decimalEquivilent4 += digit2 * pow(base2, exponent4)
+                    exponent2 += 1
+                }
+            }
+        }
+        decimalEquivilent4
+        
+    print("The converted value is \(decimalEquivilent4)")
+    }
+}; else {
+    if basebase.contains("2.0") {
+        
+        for character in basebase.reversed() {
+
+           if let digit = Double(String(character)) {
+
+                decimalEquivilent4 += digit2 * pow(base2, exponent4)
+                exponent += 1
+            }
+        }
+        decimalEquivilent4
+        print("The converted value is \(decimalEquivilent4)")
+    }}
