@@ -190,7 +190,7 @@ getRepresentation(of: 50, inBase: .binary)
 
 //bianry do decimal
 //base 2 to base 10
- let value = "01110"
+ let value = "0111"
 
 
 //from what base r we converting
@@ -237,4 +237,40 @@ if value2.contains("9") || value2.contains("8") {
     }
 }
 decimalEquivalent2
+
+let value3 = "4ABDDCFAFF"
+let base3 = 16.0
+
+var exponent3 = 0.0
+
+var decimalEquivilant3 = 0.0
+
+for character in value3.reversed() {
+    if let digit = Double(String(character)) {
+        decimalEquivilant3 += digit * pow(base3, exponent3)
+    } else {
+        switch character {
+        
+        case "A":
+            decimalEquivilant3 += 10.0 * pow(base3, exponent3)
+        case "B":
+            decimalEquivilant3 += 11.0 * pow(base3, exponent3)
+        case "C":
+            decimalEquivilant3 += 12.0 * pow(base3, exponent3)
+        case "D":
+            decimalEquivilant3 += 13.0 * pow(base3, exponent3)
+        case "E":
+            decimalEquivilant3 += 14.0 * pow(base3, exponent3)
+        case "F":
+            decimalEquivilant3 += 15.0 * pow(base3, exponent3)
+            
+        default:
+            break
+
+        }
+    }
+    exponent3 += 1
+}
+print(decimalEquivilant3)
+
 
